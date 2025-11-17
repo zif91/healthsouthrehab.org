@@ -1,0 +1,388 @@
+/**
+ * HealthSouth Rehabilitation & Wellness Center
+ * Brand Styling Guide
+ *
+ * Primary Colors:
+ * - Medical Green: #2d6a4f
+ * - White: #ffffff
+ *
+ * Typography:
+ * - UI/Interface: Lato (sans-serif)
+ * - Articles/Content: PT Serif (serif)
+ *
+ * Design Philosophy: Clean, medical, trustworthy
+ * Key Features: Disclaimers, evidence-based badges, medically reviewed tags
+ */
+
+/* ========================================
+   CSS Variables & Root Styles
+   ======================================== */
+
+:root {
+  /* Brand Colors */
+  --medical-green: #2d6a4f;
+  --medical-green-dark: #1b4332;
+  --medical-green-light: #40916c;
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --border-gray: #e0e0e0;
+  --text-dark: #333333;
+  --text-gray: #666666;
+
+  /* Semantic Colors */
+  --warning-bg: #fff3cd;
+  --warning-border: #ffc107;
+  --warning-text: #856404;
+  --info-bg: #e3f2fd;
+  --info-border: #1976d2;
+  --success-bg: #e8f5e9;
+  --success-border: var(--medical-green);
+  --evidence-bg: #fff3e0;
+  --evidence-color: #e65100;
+
+  /* Typography */
+  --font-ui: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-article: 'PT Serif', Georgia, 'Times New Roman', serif;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+}
+
+/* ========================================
+   Base Typography
+   ======================================== */
+
+body {
+  font-family: var(--font-ui);
+  color: var(--text-dark);
+  line-height: 1.6;
+  background-color: var(--white);
+  margin: 0;
+  padding: 0;
+}
+
+article,
+.article-content {
+  font-family: var(--font-article);
+  line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-ui);
+  color: var(--medical-green);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--medical-green);
+  padding-bottom: var(--spacing-sm);
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin: var(--spacing-md) 0;
+}
+
+a {
+  color: var(--medical-green);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+a:hover {
+  color: var(--medical-green-dark);
+  text-decoration: underline;
+}
+
+/* ========================================
+   Hero Section
+   ======================================== */
+
+.hero {
+  background: linear-gradient(135deg, var(--medical-green) 0%, var(--medical-green-dark) 100%);
+  color: var(--white);
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   Badges & Labels
+   ======================================== */
+
+.badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: var(--spacing-sm);
+  font-family: var(--font-ui);
+}
+
+.medically-reviewed {
+  background: var(--success-bg);
+  color: var(--medical-green);
+}
+
+.evidence-based-badge,
+.evidence-based {
+  background: var(--evidence-bg);
+  color: var(--evidence-color);
+}
+
+/* ========================================
+   Cards & Content Blocks
+   ======================================== */
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  transition: box-shadow var(--transition-medium);
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.15);
+}
+
+.card h3 {
+  color: var(--medical-green);
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xxl) 0;
+}
+
+/* ========================================
+   Disclaimer & Alert Boxes
+   ======================================== */
+
+.disclaimer {
+  background: var(--warning-bg);
+  border-left: 4px solid var(--warning-border);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+}
+
+.disclaimer strong {
+  color: var(--warning-text);
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.info-box {
+  background: var(--info-bg);
+  border-left: 4px solid var(--info-border);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-sm);
+}
+
+.info-box h3 {
+  color: var(--info-border);
+  margin-top: 0;
+}
+
+.key-points {
+  background: var(--info-bg);
+  border-left: 4px solid var(--info-border);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-sm);
+}
+
+.key-points h3 {
+  color: var(--info-border);
+  margin-top: 0;
+}
+
+/* ========================================
+   Article Meta & Styling
+   ======================================== */
+
+.article-meta {
+  background: var(--light-gray);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-xl);
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+}
+
+.reference {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  font-style: italic;
+}
+
+/* ========================================
+   Resource Sections
+   ======================================== */
+
+.resource-section {
+  background: var(--light-gray);
+  padding: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--medical-green);
+}
+
+.resource-card {
+  background: var(--white);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-gray);
+}
+
+.resource-card h4 {
+  color: var(--medical-green);
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+/* ========================================
+   Blog/Trend Specific
+   ======================================== */
+
+.trend-card {
+  background: var(--light-gray);
+  border-left: 4px solid var(--medical-green);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-sm);
+}
+
+.trend-card h3 {
+  color: var(--medical-green);
+  margin-top: 0;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+.mt-4 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+.mb-4 { margin-bottom: var(--spacing-xl); }
+
+.p-1 { padding: var(--spacing-sm); }
+.p-2 { padding: var(--spacing-md); }
+.p-3 { padding: var(--spacing-lg); }
+.p-4 { padding: var(--spacing-xl); }
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .hero {
+    background: none;
+    color: var(--text-dark);
+    padding: var(--spacing-md) 0;
+  }
+
+  a {
+    color: var(--text-dark);
+    text-decoration: underline;
+  }
+
+  .card {
+    border: 1px solid var(--text-dark);
+    box-shadow: none;
+  }
+}
